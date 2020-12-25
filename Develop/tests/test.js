@@ -24,15 +24,42 @@ function randomGen() {
 
 
     // var num = Math.floor(Math.random() * ((20 - 10) + 1) + 10;
-
-    for (var i = 0; i < passLength; i++) {
-        var randGenerate = Math.floor(Math.random() * charUpperNumSpecial.length);
-        var match = charUpperNumSpecial[randGenerate];
-        //Pushing to a string
-        passWord += match;
+    if (inclUpperCase === false && inclNum === false && inclSpecial === false) {
+        for (var i = 0; i < passLength; i++) {
+            var randGenerate = Math.floor(Math.random() * char.length);
+            var match = char[randGenerate];
+            //Pushing to a string
+            passWord += match;
+        };
+        console.log(passWord);
     };
-    console.log(passWord);
-
+    if (inclUpperCase === true && inclNum === false && inclSpecial === false) {
+        for (var i = 0; i < passLength; i++) {
+            var randGenerate = Math.floor(Math.random() * charUpper.length);
+            var match = charUpper[randGenerate];
+            //Pushing to a string
+            passWord += match;
+        };
+        console.log(passWord);
+    };
+    if (inclUpperCase === true && inclNum === true && inclSpecial === false) {
+        for (var i = 0; i < passLength; i++) {
+            var randGenerate = Math.floor(Math.random() * charUpperNum.length);
+            var match = charUpperNum[randGenerate];
+            //Pushing to a string
+            passWord += match;
+        };
+        console.log(passWord);
+    };
+    if (inclUpperCase === true && inclNum === true && inclSpecial === true) {
+        for (var i = 0; i < passLength; i++) {
+            var randGenerate = Math.floor(Math.random() * charUpperNumSpecial.length);
+            var match = charUpperNumSpecial[randGenerate];
+            //Pushing to a string
+            passWord += match;
+        };
+        console.log(passWord);
+    };
 }
 
 
