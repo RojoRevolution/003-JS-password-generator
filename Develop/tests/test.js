@@ -64,35 +64,58 @@ function randomGen() {
 /////////// Test-002
 
 function randomGen2() {
-    // Prompt for length
-    var lengthPrompt = prompt("Choose the length of you password (between 8-128):");
-    // need to validate length
-    console.log(lengthPrompt);
-    // Variable Stores the user length
-    var passLength = lengthPrompt;
-    //Prompt for Uppercase
-    var inclUpperCase = confirm("Would you like to include Uppercase Characters?");
-    //Prompt for including numbers
-    var inclNum = confirm("Would you like to include Numbers?");
-    //Prompt for including Special Characters
-    var inclSpecial = confirm("Would you like to include special characters?");
-
-    // var char = 'abcdefghijklmnopqrstuvwxyz';
+    var charLower = "abcdefghijklmnopqrstuvwxyz";
     var charUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var charNum = '1234567890';
     var charSpecial = '!@#$%^&*=-_';
-    //empty variable that will store the password
-    var requirements = "abcdefghijklmnopqrstuvwxyz";
+    //empty variable that will store the combined vars above
+    var requirements = "";
+    //empty variable that will store the random generated final password
+    var passWord = "";
+
+    // Initial prompt with validation for the specific length.
+    do {
+        var lengthPrompt = prompt("Choose the length of you password (between 8-128):");
+        if (lengthPrompt < 8 || lengthPrompt > 128) {
+            alert("Password must be between 8 characters and 128 characters long.");
+        }
+    } while (lengthPrompt < 8 || lengthPrompt > 128) {
+    }
+
+    console.log(lengthPrompt);
+    // Variable Stores the user length
+    var passLength = lengthPrompt;
+    //Prompt for lowercase
+    var inclLowerCase = confirm("Would you like to include lowercase characters?");
+    //Prompt for Uppercase
+    var inclUpperCase = confirm("Would you like to include uppercase characters?");
+    //Prompt for including numbers
+    var inclNum = confirm("Would you like to include numbers?");
+    //Prompt for including Special Characters
+    var inclSpecial = confirm("Would you like to include special characters?");
 
 
-    if (inclUpperCase === true) { requirements += charUpper; }
+    if (inclLowerCase === true) {
+        var requirements = requirements += charLower;
+        console.log(requirements);
+    };
+    if (inclUpperCase === true) {
+        var requirements = requirements += charUpper;
+        console.log(requirements);
+    };
     //include false statements so that it saves the results?
-    if (inclNum === true) { requirements += charNum; }
-    if (inclSpecial === true) { requirements += charSpecial; }
+    if (inclNum === true) {
+        var requirements = requirements += charNum;
+        console.log(requirements);
+    };
+    if (inclSpecial === true) {
+        var requirements = requirements += charSpecial;
+        console.log(requirements);
+
+    };
 
     // var num = Math.floor(Math.random() * ((20 - 10) + 1) + 10;
     for (var i = 0; i < passLength; i++) {
-        var passWord = "";
         var randGenerate = Math.floor(Math.random() * requirements.length);
         var match = requirements[randGenerate];
         //Push var match to the passWord variable to a string
@@ -101,9 +124,4 @@ function randomGen2() {
     console.log(passWord);
 };
 
-
-randomGen(2);
-
-
-
-
+randomGen2();
