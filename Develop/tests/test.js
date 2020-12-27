@@ -86,63 +86,42 @@ function randomGen2() {
     console.log(lengthPrompt);
     // Variable Stores the user length
     var passLength = lengthPrompt;
-    //Prompt for lowercase + If / Else statements that confirms the users choice
-    var inclLowerCase = confirm("Would you like to include lowercase letters?");
-    if (inclLowerCase === true) {
-        var requirements = requirements += charLower;
-        alert("Your password will include lowercase letters");
-        console.log(requirements);
-    } else {
-        alert("You password will NOT include lower case letters");
-    };
-    //Prompt for Uppercase + If / Else statements that confirms the users choice
-    var inclUpperCase = confirm("Would you like to include uppercase letters?");
-    if (inclUpperCase === true) {
-        var requirements = requirements += charUpper;
-        alert("Your password will include uppercase letters");
-        console.log(requirements);
-    } else {
-        alert("You password will NOT include uppercase letters");
-    };
-    //Prompt for including numbers + If / Else statements that confirms the users choice
-    var inclNum = confirm("Would you like to include numbers?");
-    if (inclNum === true) {
-        var requirements = requirements += charNum;
-        alert("You password will include numbers.");
-        console.log(requirements);
-    } else {
-        alert("You password will NOT include numbers.");
-    };
-    //Prompt for including Special Characters + If / Else statements that confirms the users choice
-    var inclSpecial = confirm("Would you like to include special characters?");
-    if (inclSpecial === true) {
-        var requirements = requirements += charSpecial;
-        alert("You password will include special characters.");
-        console.log(requirements);
-    } else {
-        alert("You password will NOT include special characters.");
+    //Prompts will continue to be asked until the user choose at least one of the options below
+    do {
+        //Prompt for lowercase
+        var inclLowerCase = confirm("Would you like to include lowercase letters?");
+        //If prompt is true, 
+        if (inclLowerCase === true) {
+            //add variabele string to empty password variable string
+            var requirements = requirements += charLower;
+            console.log(requirements);
+        };
+        //Prompt for uppercase
+        var inclUpperCase = confirm("Would you like to include uppercase letters?");
+        if (inclUpperCase === true) {
+            var requirements = requirements += charUpper;
+            console.log(requirements);
+        };
+        //Prompt for including numbers
+        var inclNum = confirm("Would you like to include numbers?");
+        if (inclNum === true) {
+            var requirements = requirements += charNum;
+            console.log(requirements);
+        };
+        //Prompt for including Special Characters
+        var inclSpecial = confirm("Would you like to include special characters?");
+        if (inclSpecial === true) {
+            var requirements = requirements += charSpecial;
+            console.log(requirements);
+        };
+        //Validated that at least one option was chosen
+        if (inclLowerCase === false && inclUpperCase === false && inclNum === false === inclSpecial === false) {
+            alert("ALERT: Password must include at least one option in order to be generated. Press OK to select again.")
+        };
+    } while (inclLowerCase === false && inclUpperCase === false && inclNum === false === inclSpecial === false) {
     };
 
 
-    // if (inclLowerCase === true) {
-    //     var requirements = requirements += charLower;
-    //     alert("Your password will include lower case text");
-    //     console.log(requirements);
-    // };
-    // if (inclUpperCase === true) {
-    //     var requirements = requirements += charUpper;
-    //     console.log(requirements);
-    // };
-    //include false statements so that it saves the results?
-    // if (inclNum === true) {
-    //     var requirements = requirements += charNum;
-    //     console.log(requirements);
-    // };
-    // if (inclSpecial === true) {
-    //     var requirements = requirements += charSpecial;
-    //     console.log(requirements);
-
-    // };
 
     // var num = Math.floor(Math.random() * ((20 - 10) + 1) + 10;
     for (var i = 0; i < passLength; i++) {
