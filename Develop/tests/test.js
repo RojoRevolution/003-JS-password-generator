@@ -64,6 +64,7 @@ function randomGen() {
 /////////// Test-002
 
 function randomGen2() {
+    //variables of options, will be combined and stored in empty variable
     var charLower = "abcdefghijklmnopqrstuvwxyz";
     var charUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var charNum = '1234567890';
@@ -73,46 +74,75 @@ function randomGen2() {
     //empty variable that will store the random generated final password
     var passWord = "";
 
-    // Initial prompt with validation for the specific length.
+    // Initial prompt with validation for the specific length - will loop until number entered is between 8-128.
     do {
         var lengthPrompt = prompt("Choose the length of you password (between 8-128):");
         if (lengthPrompt < 8 || lengthPrompt > 128) {
             alert("Password must be between 8 characters and 128 characters long.");
         }
     } while (lengthPrompt < 8 || lengthPrompt > 128) {
-    }
+    };
 
     console.log(lengthPrompt);
     // Variable Stores the user length
     var passLength = lengthPrompt;
-    //Prompt for lowercase
-    var inclLowerCase = confirm("Would you like to include lowercase characters?");
-    //Prompt for Uppercase
-    var inclUpperCase = confirm("Would you like to include uppercase characters?");
-    //Prompt for including numbers
-    var inclNum = confirm("Would you like to include numbers?");
-    //Prompt for including Special Characters
-    var inclSpecial = confirm("Would you like to include special characters?");
-
-
+    //Prompt for lowercase + If / Else statements that confirms the users choice
+    var inclLowerCase = confirm("Would you like to include lowercase letters?");
     if (inclLowerCase === true) {
         var requirements = requirements += charLower;
+        alert("Your password will include lowercase letters");
         console.log(requirements);
+    } else {
+        alert("You password will NOT include lower case letters");
     };
+    //Prompt for Uppercase + If / Else statements that confirms the users choice
+    var inclUpperCase = confirm("Would you like to include uppercase letters?");
     if (inclUpperCase === true) {
         var requirements = requirements += charUpper;
+        alert("Your password will include uppercase letters");
         console.log(requirements);
+    } else {
+        alert("You password will NOT include uppercase letters");
     };
-    //include false statements so that it saves the results?
+    //Prompt for including numbers + If / Else statements that confirms the users choice
+    var inclNum = confirm("Would you like to include numbers?");
     if (inclNum === true) {
         var requirements = requirements += charNum;
+        alert("You password will include numbers.");
         console.log(requirements);
+    } else {
+        alert("You password will NOT include numbers.");
     };
+    //Prompt for including Special Characters + If / Else statements that confirms the users choice
+    var inclSpecial = confirm("Would you like to include special characters?");
     if (inclSpecial === true) {
         var requirements = requirements += charSpecial;
+        alert("You password will include special characters.");
         console.log(requirements);
-
+    } else {
+        alert("You password will NOT include special characters.");
     };
+
+
+    // if (inclLowerCase === true) {
+    //     var requirements = requirements += charLower;
+    //     alert("Your password will include lower case text");
+    //     console.log(requirements);
+    // };
+    // if (inclUpperCase === true) {
+    //     var requirements = requirements += charUpper;
+    //     console.log(requirements);
+    // };
+    //include false statements so that it saves the results?
+    // if (inclNum === true) {
+    //     var requirements = requirements += charNum;
+    //     console.log(requirements);
+    // };
+    // if (inclSpecial === true) {
+    //     var requirements = requirements += charSpecial;
+    //     console.log(requirements);
+
+    // };
 
     // var num = Math.floor(Math.random() * ((20 - 10) + 1) + 10;
     for (var i = 0; i < passLength; i++) {
