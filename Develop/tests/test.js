@@ -115,10 +115,12 @@ function randomGen2() {
             console.log(requirements);
         };
         //Validated that at least one option was chosen
-        if (inclLowerCase === false && inclUpperCase === false && inclNum === false === inclSpecial === false) {
+        // if (inclLowerCase === false && inclUpperCase === false && inclNum === false === inclSpecial === false) {
+        if (!inclLowerCase && !inclUpperCase && !inclNum && !inclSpecial) {
+
             alert("ALERT: Password must include at least one option in order to be generated. Press OK to select again.")
         };
-    } while (inclLowerCase === false && inclUpperCase === false && inclNum === false === inclSpecial === false) {
+    } while (!inclLowerCase && !inclUpperCase && !inclNum && !inclSpecial) {
     };
 
 
@@ -134,3 +136,6 @@ function randomGen2() {
 };
 
 randomGen2();
+
+
+/////////// Test-003

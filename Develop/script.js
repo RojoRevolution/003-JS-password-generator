@@ -15,7 +15,7 @@
 var generateBtn = document.querySelector("#generate");
 
 // --------------------------//
-//------ Start Custom Funciton ------ //
+//------ Start Custom Function ------ //
 // ------------------------//
 function randomGen2() {
   //variables of options, will be combined and stored in empty variable
@@ -46,33 +46,29 @@ function randomGen2() {
     var inclLowerCase = confirm("Would you like to include lowercase letters?");
     //If prompt is true, 
     if (inclLowerCase === true) {
-      //add variabele string to empty password variable string
+      //add variable string to empty requirements variable string
       var requirements = requirements += charLower;
-      console.log(requirements);
     };
     //Prompt for uppercase
     var inclUpperCase = confirm("Would you like to include uppercase letters?");
     if (inclUpperCase === true) {
       var requirements = requirements += charUpper;
-      console.log(requirements);
     };
     //Prompt for including numbers
     var inclNum = confirm("Would you like to include numbers?");
     if (inclNum === true) {
       var requirements = requirements += charNum;
-      console.log(requirements);
     };
     //Prompt for including Special Characters
     var inclSpecial = confirm("Would you like to include special characters?");
     if (inclSpecial === true) {
       var requirements = requirements += charSpecial;
-      console.log(requirements);
     };
     //Validated that at least one option was chosen
-    if (inclLowerCase === false && inclUpperCase === false && inclNum === false === inclSpecial === false) {
+    if (!inclLowerCase && !inclUpperCase && !inclNum && !inclSpecial) {
       alert("ALERT: Password must include at least one option in order to be generated. Press OK to select again.")
     };
-  } while (inclLowerCase === false && inclUpperCase === false && inclNum === false === inclSpecial === false) {
+  } while (!inclLowerCase && !inclUpperCase && !inclNum && !inclSpecial) {
   };
 
 
