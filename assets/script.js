@@ -1,11 +1,23 @@
+//Steps
+//Push button, begin first prompt
+//First Prompt, user chooses between 8 and 128 charachters ---- Math.floor > Math.random
+//Second prompt - would you like Lowercase charachters
+//Third prompt - would you like uppercase charachters
+//Fourth Prompt - would you like Numeric Charachters
+//Fitht prompt - Special Charachters
+// Validate options chosen - Atleast one option needs to be true
+// Generate password
+// Display password on the page or in an alert
+
+
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// ------------------------------------//
+// --------------------------//
 //------ Start Custom Function ------ //
-// ----------------------------------//
-function randomGen() {
+// ------------------------//
+function randomGen2() {
   //variables of options, will be combined and stored in empty variable
   var charLower = "abcdefghijklmnopqrstuvwxyz";
   var charUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -73,15 +85,15 @@ function randomGen() {
 
 };
 
-// ----------------------------------//
+// --------------------------//
 //------ End Custom Funciton ------ //
-// --------------------------------//
+// ------------------------//
 
 
 // Write password to the #password input
 function writePassword() {
-  // var password = begins main function
-  var password = randomGen();
+  // var password = generatePassword();
+  var password = randomGen2();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
