@@ -68,12 +68,10 @@ function randomGen2() {
     if (!inclLowerCase && !inclUpperCase && !inclNum && !inclSpecial) {
       alert("ALERT: Password must include at least one option in order to be generated. Press OK to select again.")
     };
+    // Above prompts will loop until at least one of the conditions above is true
   } while (!inclLowerCase && !inclUpperCase && !inclNum && !inclSpecial) {
   };
 
-
-
-  // var num = Math.floor(Math.random() * ((20 - 10) + 1) + 10;
   for (var i = 0; i < passLength; i++) {
     var randGenerate = Math.floor(Math.random() * requirements.length);
     var match = requirements[randGenerate];
