@@ -1,24 +1,11 @@
-//Steps
-//Push button, begin first prompt
-//First Prompt, user chooses between 8 and 128 charachters ---- Math.floor > Math.random
-//Second prompt - would you like Lowercase charachters
-//Third prompt - would you like uppercase charachters
-//Fourth Prompt - would you like Numeric Charachters
-//Fitht prompt - Special Charachters
-// Validate options chosen - Atleast one option needs to be true
-// Generate password
-// Display password on the page or in an alert
-
-
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// --------------------------//
-//------ Start Custom Function ------ //
-// ------------------------//
+// ------------------------------//
+//------ Custom Function ------ //
+// ----------------------------//
 function randomGen2() {
-  //variables of options, will be combined and stored in empty variable
+  //variables of options, will be combined and stored in empty variable "requirements"
   var charLower = "abcdefghijklmnopqrstuvwxyz";
   var charUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var charNum = '1234567890';
@@ -27,6 +14,8 @@ function randomGen2() {
   var requirements = "";
   //empty variable that will store the random generated final password
   var randPassWord = "";
+
+  // ----- FIRST LOOP ---- // Password Length 
 
   // Initial prompt with validation for the specific length - will loop until number entered is between 8-128.
   do {
@@ -37,19 +26,21 @@ function randomGen2() {
   } while (lengthPrompt < 8 || lengthPrompt > 128) {
   };
 
-  console.log(lengthPrompt);
-  // Variable Stores the user length
+  // Variable Stores the legth of the password the user chose
   var passLength = lengthPrompt;
+
+  // ----- SECOND LOOP ---- // Password Options
+
   //Prompts will continue to be asked until the user choose at least one of the options below
   do {
-    //Prompt for lowercase
+    //Prompt user if they'd like to include lowercase letters
     var inclLowerCase = confirm("Would you like to include lowercase letters?");
     //If prompt is true, 
     if (inclLowerCase === true) {
-      //add variable string to empty requirements variable string
+      //add variable string to empty requirements variable string -- if statements will be the same for each prompt
       var requirements = requirements += charLower;
     };
-    //Prompt for uppercase
+    //Prompt user if they'd like to include uppercase letters
     var inclUpperCase = confirm("Would you like to include uppercase letters?");
     if (inclUpperCase === true) {
       var requirements = requirements += charUpper;
@@ -72,20 +63,24 @@ function randomGen2() {
   } while (!inclLowerCase && !inclUpperCase && !inclNum && !inclSpecial) {
   };
 
+  // ----- THIRD LOOP ---- // Randomizer
+
+  //for loop runs the length of the user chosen password length in the initial promp
   for (var i = 0; i < passLength; i++) {
+    // random numbers generate are stored to a variable
     var randGenerate = Math.floor(Math.random() * requirements.length);
+    //random number is then passed into the requirements string to choose a character/index
     var match = requirements[randGenerate];
-    //Push var match to the passWord variable to a string
+    //random string character is then added to the final password variable
     randPassWord += match;
   };
-  console.log(randPassWord);
+  //return the final completed, randmized password
   return randPassWord;
 
 };
-
-// --------------------------//
-//------ End Custom Funciton ------ //
-// ------------------------//
+// ------------------------------//
+//------**************** ------ //
+// ----------------------------//
 
 
 // Write password to the #password input
